@@ -16,7 +16,7 @@ jobs:
       with:
         java-version: 17
         
-         - name: Packaging Jar
+    - name: Packaging Jar
       id: packaging-jar
       shell: bash
       run: mvn clean install
