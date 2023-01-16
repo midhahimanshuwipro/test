@@ -9,8 +9,22 @@ jobs:
       issues: write
       pull-requests: write
     steps:
+    - name: Check out Repository
+      uses: actions/checkout@v3
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        
+         - name: Packaging Jar
+      id: packaging-jar
+      shell: bash
+      run: mvn clean install
+      
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: "Message that will be displayed on users' first issue"
         pr-message: "Message that will be displayed on users' first pull request"
+
+
